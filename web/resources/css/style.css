@@ -1,0 +1,48 @@
+.section{
+    height: 100vh;
+}
+
+tr{
+    border-bottom: none;
+}
+
+
+/*EDITAVEIS*/
+
+.output-text{
+    display: inherit;    
+}
+
+.editavel{
+    display: none;
+}
+
+.tabela{
+    display: none;
+}
+
+/*TÍTULOS HOME*/
+
+#titulo-home{
+    color: #ffffff;
+}
+
+#subtitulo-home{
+    color: #b2b2b2;
+    margin-top: -20px;
+    font-style: italic;
+}
+
+/*IMA HOME*/
+
+#img-home{
+    display: inline-block;
+    margin-top: 100px;
+}
+
+.circle{
+    border: 1px solid #424242;
+}
+
+
+
