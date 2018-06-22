@@ -133,20 +133,18 @@
                             <h:form>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <div>
-                                            <h:inputText id="title-about-edit" class="validate" value="#{aboutBEAN.about.title}"/>
-                                            <label for="title-about-edit">Tittle</label>
-                                        </div>
-                                        <div class="input-field col s6 ">
-                                            <h:inputText id="titleskill-about" class="validate" value="#{aboutBEAN.about.titleskill}"/>
-                                            <label for="titleskill-about">Tittle Skill</label>
-                                        </div>
+                                        <h:inputText id="title-about-edit" class="validate" value="#{aboutBEAN.about.title}"/>
+                                        <label for="title-about-edit">Tittle</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <h:inputText id="descript-about-edit" class="validate" value="#{aboutBEAN.about.description}"/>
-                                            <label for="descript-about-edit">Description</label>
-                                        </div>
+                                    <div class="input-field col s4">
+                                        <h:inputText id="titleskill-about" class="validate" value="#{aboutBEAN.about.titleskill}"/>
+                                        <label for="titleskill-about">Tittle Skill</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <h:inputText id="descript-about-edit" class="validate" value="#{aboutBEAN.about.description}"/>
+                                        <label for="descript-about-edit">Description</label>
                                         <h:commandButton class="waves-effect waves-light btn" value="Save" action="#{aboutBEAN.saveInfo()}"></h:commandButton>
                                     </div>
                                 </div>
