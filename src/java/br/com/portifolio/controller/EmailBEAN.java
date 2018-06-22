@@ -9,10 +9,10 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @SessionScoped
-public class EmailBEAN implements Serializable{
+public class emailBEAN implements Serializable{
     private Email email;
  
-    public EmailBEAN(){
+    public emailBEAN(){
         email = new Email();
     }
     

@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 @SessionScoped
-public class HomeBEAN implements Serializable {
+public class homeBEAN implements Serializable {
 
     HomeDAOImpl homeimp = new HomeDAOImpl();
     private Home home = new Home();

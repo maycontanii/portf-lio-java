@@ -36,12 +36,10 @@ public class HomeDAOImpl implements HomeDAO {
 
     @Override
     public void excluir(Home home) {
-        
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
         session.delete(home);
         tx.commit();
     }
-
 }

@@ -37,16 +37,16 @@
                             </div>
                         </div>
                         <!--Inputs Editaveis-->
-                        <div class="editavel">
+                        <div class="editable">
                             <h:form>
                                 <div class="row">
-                                    <div class="col s2 offset-s5">
+                                    <div class="input-field col s2 offset-s5">
                                         <h:inputText id="nome-home" class="validate" value="#{homeBEAN.home.subtituloHome}"/>
                                         <label for="nome-home">Nome</label>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col s4 offset-s4">
+                                    <div class="input-field col s4 offset-s4">
                                         <h:inputText id="titulo-home" class="validate" value="#{homeBEAN.home.tituloHome}"/>
                                         <label for="titulo-home">Titulo</label>
                                     </div>
@@ -58,21 +58,6 @@
                             <!--Tabela Home-->
                             <h:dataTable class="tabela" value="#{homeBEAN.listahome}" var="item" id="tabela">
                                 <h:column>
-                                    <f:facet name="header">
-                                        Titulo
-                                    </f:facet>
-                                    <h:outputText value="#{item.tituloHome}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Subtitulo
-                                    </f:facet>
-                                    <h:outputText value="#{item.subtituloHome}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Ações
-                                    </f:facet>
                                     <h:form>
                                         <h:commandLink value="Remover" action="#{homeBEAN.removerInf(item)}"/>
                                         <h:commandLink value="Alterar" action="#{homeBEAN.carregar(item)}"/>
@@ -82,22 +67,145 @@
                         </div>
                     </div>
                 </div>
-                <!--Sobre Section-->
-                <div id="sobre" class="row section scrollspy">
-                    <div class="col s4">
-                        <h:form>
-                            <h2>Sobre</h2>
-                            <h:inputText value="#{sobreBEAN.sobre.info}"></h:inputText>
-                            <h:commandButton class="waves-effect waves-light btn" value="Salvar" action="#{sobreBEAN.salvarInf()}"></h:commandButton>
-                        </h:form>
-                    </div>                    
+
+                <!--About Section-->
+                <div id="about" class="section scrollspy #fafafa grey lighten-5">
+                    <div class="row output-text " id="output-text">
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s12">
+                                    <h:dataTable value="#{aboutBEAN.listabout}" var="list">
+                                        <h:column >
+                                            <h2 id="title-about" class="left-align"><h:outputText value="#{list.title}"></h:outputText></h2>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <h:dataTable value="#{aboutBEAN.listabout}" var="list">
+                                        <h:column >
+                                            <h5 id="descript-about" class="left-align"><h:outputText value="#{list.description}"></h:outputText></h5>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s10 offset-s1">
+                                    <h:graphicImage id="img-about" class="responsive-img " library="img" name="texture2.png" width="500" height="500"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s6 offset-s4">
+                                    <h:dataTable value="#{aboutBEAN.listabout}" var="list">
+                                        <h:column >
+                                            <h2 id="titleskill-about"><h:outputText value="#{list.titleskill}"></h:outputText></h2>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </div>
+                            <!--About Skill Table-->
+                            <div class="row">
+                                <h:dataTable class="responsive-table centered col s12 m9" value="#{skillsBEAN.listskill}" var="item" >
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Technology
+                                        </f:facet>
+                                        <h:outputText  value="#{item.technology}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Level
+                                        </f:facet>
+                                        <div class="progress">
+                                            <div class="determinate" style="width: #{item.leveltech}"></div>
+                                        </div>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Inputs Editable-->
+                    <div class="row editable">
+                        <div class="col s6">
+                            <h:form>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <div>
+                                            <h:inputText id="title-about-edit" class="validate" value="#{aboutBEAN.about.title}"/>
+                                            <label for="title-about-edit">Tittle</label>
+                                        </div>
+                                        <div class="input-field col s6 ">
+                                            <h:inputText id="titleskill-about" class="validate" value="#{aboutBEAN.about.titleskill}"/>
+                                            <label for="titleskill-about">Tittle Skill</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h:inputText id="descript-about-edit" class="validate" value="#{aboutBEAN.about.description}"/>
+                                            <label for="descript-about-edit">Description</label>
+                                        </div>
+                                        <h:commandButton class="waves-effect waves-light btn" value="Save" action="#{aboutBEAN.saveInfo()}"></h:commandButton>
+                                    </div>
+                                </div>
+                            </h:form>
+                            <h:form>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <h:inputText id="tech-about-edit" class="validate" value="#{skillsBEAN.skill.technology}"/>
+                                        <label for="tech-about-edit">Technology</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s3">
+                                        <h:inputText id="leveltech-about" class="validate" value="#{skillsBEAN.skill.leveltech}"/>
+                                        <label for="leveltech-about">Level</label>
+                                    </div>
+                                </div>
+                                <h:commandLink class="btn-small" value="Save " action="#{skillsBEAN.saveInfo()}"/>
+                            </h:form>
+                        </div>
+                        <!--About Skill Table-->
+                        <div class="col s6">
+                            <div class="editable">
+                                <h:dataTable class="responsive-table  centered col s12 m12" value="#{skillsBEAN.listskill}" var="item" >
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Technology
+                                        </f:facet>
+                                        <h:outputText value="#{item.technology}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Level
+                                        </f:facet>
+                                        <div class="progress">
+                                            <div class="determinate" style="width: #{item.leveltech}"></div>
+                                        </div>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Action
+                                        </f:facet>
+                                        <h:form>
+                                            <h:commandLink class="btn-small" value="Remove " action="#{skillsBEAN.Remove(item)}"/>
+                                            <h:commandLink class="btn-small" value="Change" action="#{skillsBEAN.Load(item)}"/>
+                                        </h:form>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <!--  Projetos Section-->
-                <div id="projetos" class="section scrollspy">
+                <div id="projects" class="section scrollspy #fafafa grey lighten-5">
                     <h2>Projetos</h2>
                 </div>
                 <!--Contato Section-->
-                <div id="contato" class="section scrollspy">
+                <div id="contact" class="section scrollspy #fafafa grey lighten-5">
                     <h2>Contato</h2>
                     <h:form>
                         <div>

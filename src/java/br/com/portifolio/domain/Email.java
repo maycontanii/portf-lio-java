@@ -49,7 +49,7 @@ public class Email {
             email.setSubject("[Contato via portifólio]");
 
             email.setMsg("Remetente: " + this.remetente + "\nMensagem:" + this.mensagem);
-            email.addTo("");
+            email.addTo("------");
             email.send();
             return true;
         } catch (EmailException e) {

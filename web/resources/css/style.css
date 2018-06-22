@@ -13,22 +13,22 @@ tr{
     display: inherit;    
 }
 
-.editavel{
+.editable{
     display: none;
 }
 
 .tabela{
-    display: none;
+    display: inherit;
 }
 
 /*TÍTULOS HOME*/
 
 #titulo-home{
-    color: #ffffff;
+    color: #fafafa;
 }
 
 #subtitulo-home{
-    color: #b2b2b2;
+    color: #eceff1;
     margin-top: -20px;
     font-style: italic;
 }
@@ -44,5 +44,28 @@ tr{
     border: 1px solid #424242;
 }
 
+/*TITLE ABOUT*/
+
+#title-about{
+    display: inline-block;
+    margin-top: 80px;
+}
+
+#descript-about{
+    text-align: justify;
+}
+
+#titleskill-about{
+    display: inline-block;
+    margin-top: 80px;
+}
+
+.progress{
+    background-color: #bdbdbd;
+}
+
+.progress .determinate{
+    background-color: #616161;
+}
 
 
