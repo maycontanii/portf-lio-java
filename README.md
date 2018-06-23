@@ -1,2 +1,2 @@
-# portf-lio-java
+# Portfolio-Java
 Criação de um portfólio em Java + JSF + Hibernate.
