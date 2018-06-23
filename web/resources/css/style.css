@@ -6,7 +6,6 @@ tr{
     border-bottom: none;
 }
 
-
 /*EDITAVEIS*/
 
 .output-text{
@@ -21,7 +20,7 @@ tr{
     display: inherit;
 }
 
-/*TÍTULOS HOME*/
+/* HOME*/
 
 #titulo-home{
     color: #fafafa;
@@ -33,8 +32,6 @@ tr{
     font-style: italic;
 }
 
-/*IMA HOME*/
-
 #img-home{
     display: inline-block;
     margin-top: 100px;
@@ -44,7 +41,7 @@ tr{
     border: 1px solid #424242;
 }
 
-/*TITLE ABOUT*/
+/*ABOUT*/
 
 #title-about{
     display: inline-block;
@@ -68,4 +65,20 @@ tr{
     background-color: #616161;
 }
 
+/*PROJECTS*/
+
+#secondrow-project{
+    margin-top: 80px;
+}
+
+/*CONTACT*/
+
+#title-contact{
+    display: inline-block;
+    margin-top: 80px;
+}
+
+#container-contact{
+    margin-top: 100px;
+}
 

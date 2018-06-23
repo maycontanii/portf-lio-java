@@ -11,5 +11,6 @@
     <mapping class="br.com.portifolio.domain.Home"/>
     <mapping class="br.com.portifolio.domain.About"/>
     <mapping class="br.com.portifolio.domain.Skills"/>
+    <mapping class="br.com.portifolio.domain.Projects"/>
   </session-factory>
 </hibernate-configuration>

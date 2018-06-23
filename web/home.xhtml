@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:body>
         <ui:composition template="WEB-INF/templates/template.xhtml">
@@ -67,7 +68,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!--About Section-->
                 <div id="about" class="section scrollspy #fafafa grey lighten-5">
                     <div class="row output-text " id="output-text">
@@ -198,27 +198,84 @@
                     </div>
                 </div>
 
-                <!--  Projetos Section-->
+                <!--  Projects Section-->
                 <div id="projects" class="section scrollspy #fafafa grey lighten-5">
-                    <h2>Projetos</h2>
+                    <!--Title Projects-->
+                    <div class="row">
+                        <h2 id="title-about" class="left-align">Projects</h2>
+                        <!--Inputs Editables-->
+                        <h:form>
+                            <div class="editable">
+                                <div class="input-field col s2">
+                                    <h:inputText id="title-projects-edit" class="validate" value="#{projectsBEAN.project.title}"/>
+                                    <label for="title-projects-edit">Title</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <h:inputText id="descrip-projects-edit" class="validate" value="#{projectsBEAN.project.description}"/>
+                                    <label for="descrip-projects-edit">Description</label>
+                                </div>
+                                <div class="input-field col s2">
+                                    <h:inputText id="link-projects-edit" class="validate" value="#{projectsBEAN.project.link}"/>
+                                    <label for="link-projects-edit">Link</label>
+                                </div>
+                                <h:commandLink class="btn-small" value="Save " action="#{projectsBEAN.saveInfo()}"/>
+                            </div>
+                        </h:form>
+                    </div>
+                    <!--Cards Projects-->
+                    <h:dataTable value="#{projectsBEAN.projectlist}" var="list">
+                        <h:column >
+                            <div class="row" id="secondrow-project">
+                                <div class="col s3">
+                                    <div class="card medium">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <img class="activator" src="resources/img/desk3.jpg"/>
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title activator grey-text text-darken-4"><h:outputText value="#{list.title}"/><i class="right">+</i></span>
+                                            <p><a href="#{list.link}" target="_blank">Link</a></p>
+                                            <h:form class="editable">
+                                                <h:commandLink class="btn-small" value="Remove " action="#{projectsBEAN.Remove(list)}"/>
+                                                <h:commandLink class="btn-small" value="Change" action="#{projectsBEAN.Load(list)}"/>
+                                            </h:form>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4"><h:outputText value="#{list.title}"/><i class="material-icons right">x</i></span>
+                                            <p><h:outputText value="#{list.description}"/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
                 </div>
-                <!--Contato Section-->
+
+                <!--Contact Section-->
                 <div id="contact" class="section scrollspy #fafafa grey lighten-5">
-                    <h2>Contato</h2>
+                    <h2 id="title-contact" class="left-align">Contact</h2>
                     <h:form>
-                        <div>
-                            <h:outputLabel value="Seu nome:"/>
-                            <h:inputText value="#{emailBEAN.email.nome}"/>
+                        <div class="container" id="container-contact">
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <h:inputText id="name-contact" class="validate" value="#{emailBEAN.email.nome}"/>
+                                    <label for="name-contact">Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <h:inputText id="email-contact" class="validate" value="#{emailBEAN.email.remetente}"/>
+                                    <label for="email-contact">Email</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s7">
+                                    <h:inputText id="message-contact" class="validate" value="#{emailBEAN.email.mensagem}"/>
+                                    <label for="message-contact">Message</label>
+                                </div>
+                            </div>
+                            <h:commandButton class="waves-effect waves-light btn #424242 grey darken-1 " value="Send" actionListener="#{emailBEAN.enviarEmail()}"/>
                         </div>
-                        <div>
-                            <h:outputLabel value="Seu email:"/>
-                            <h:inputText value="#{emailBEAN.email.remetente}"/>
-                        </div>
-                        <div>
-                            <h:outputLabel value="Mensagem:"/>
-                            <h:inputTextarea value="#{emailBEAN.email.mensagem}"/>
-                        </div>
-                        <h:commandButton class="waves-effect waves-light btn" value="Enviar mensagem" actionListener="#{emailBEAN.enviarEmail()}"/>
+
                     </h:form>
                 </div>
             </ui:define>

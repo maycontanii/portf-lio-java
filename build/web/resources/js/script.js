@@ -7,6 +7,8 @@ function edit() {
     input.item(0).style = "display: inherit";
     input.item(1).style = "display: inherit";
     input.item(2).style = "display: inherit";
+    input.item(3).style = "display: inherit";
+    input.item(4).style = "display: inherit";
 }
 
 function noEdit() {
@@ -18,4 +20,6 @@ function noEdit() {
     input.item(0).style = "display: none";
     input.item(1).style = "display: none";
     input.item(2).style = "display: none";
+    input.item(3).style = "display: none";
+    input.item(4).style = "display: none";
 }
