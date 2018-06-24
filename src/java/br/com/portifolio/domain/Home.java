@@ -13,28 +13,37 @@ public class Home implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private int id = 1;
-    @Column(length = 255, nullable = true)
-    private String tituloHome;
     
     @Column(length = 255, nullable = true)
-    private String subtituloHome;
+    private String title;
+    
+    @Column(length = 255, nullable = true)
+    private String subtitle;
 
     public Home() {
     }
 
-    public String getTituloHome() {
-        return tituloHome;
+    public int getId() {
+        return id;
     }
 
-    public void setTituloHome(String tituloHome) {
-        this.tituloHome = tituloHome;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getSubtituloHome() {
-        return subtituloHome;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSubtituloHome(String subtituloHome) {
-        this.subtituloHome = subtituloHome;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 }

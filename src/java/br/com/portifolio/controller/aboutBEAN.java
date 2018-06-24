@@ -24,19 +24,11 @@ public class aboutBEAN implements Serializable {
         return listabout;
     }
 
-    public void Remove(About a) {
-        this.about = a;
-        aboutimp.delete(this.about);
-        this.about.setDescription(null);
-        this.about.setTitle(null);
-    }
-
-    public void Load(About a) {
-        about = a;
-    }
-
     public void saveInfo() {
         aboutimp.save(about);
     }
 
+    public void loadInfo(About a) {
+        about = a;
+    }
 }

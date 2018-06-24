@@ -3,7 +3,7 @@ package br.com.portifolio.controller;
 import br.com.portifolio.dao.HomeDAOImpl;
 import br.com.portifolio.domain.Home;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 
@@ -13,43 +13,22 @@ public class homeBEAN implements Serializable {
 
     HomeDAOImpl homeimp = new HomeDAOImpl();
     private Home home = new Home();
-    private ArrayList<Home> listahome;
+    private List<Home> listhome;
 
     public Home getHome() {
         return home;
     }
 
-    public void setHome(Home home) {
-        this.home = home;
+    public List<Home> getListhome() {
+        listhome = homeimp.find();
+        return listhome;
     }
 
-    public HomeDAOImpl getHomeimp() {
-        return homeimp;
+    public void saveInfo() {
+        homeimp.save(home);
     }
 
-    public void setHomeimp(HomeDAOImpl homeimp) {
-        this.homeimp = homeimp;
-    }
-
-    public void salvarInf() {
-        homeimp.salvarAtualizar(home);
-    }
-
-    public ArrayList<Home> getListahome() {
-        listahome = homeimp.buscarInfo();
-        return listahome;
-    }
-
-    public String removerInf(Home h) {
-        this.home = h;
-        homeimp.excluir(this.home);
-        this.home.setTituloHome(null);
-        this.home.setSubtituloHome(null);
-        return "home";
-    }
-    
-    public String carregar(Home h){
+    public void loadInf(Home h) {
         home = h;
-        return "home";
     }
 }

@@ -24,7 +24,7 @@ public class projectsBEAN implements Serializable {
         return projectlist;
     }
 
-    public void Remove(Projects p) {
+    public void removeInfo(Projects p) {
         this.project = p;
         projectimp.delete(this.project);
         this.project.setTitle(null);
@@ -32,11 +32,11 @@ public class projectsBEAN implements Serializable {
         this.project.setLink(null);
     }
 
-    public void Load(Projects p) {
-        project = p;
-    }
-
     public void saveInfo() {
         projectimp.save(project);
+    }
+
+    public void loadInf(Projects p) {
+        project = p;
     }
 }

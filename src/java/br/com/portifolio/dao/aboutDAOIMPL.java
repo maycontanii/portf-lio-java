@@ -24,15 +24,6 @@ public class aboutDAOIMPL implements aboutDAO {
     }
 
     @Override
-    public void delete(About about) {
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
-        session.delete(about);
-        tx.commit();
-    }
-
-    @Override
     public List<About> find() {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();

@@ -22,23 +22,28 @@ tr{
 
 /* HOME*/
 
-#titulo-home{
+#title-home{
     color: #fafafa;
+    margin-top: 100px;
 }
 
-#subtitulo-home{
+#subtitle-home{
     color: #eceff1;
-    margin-top: -20px;
     font-style: italic;
+    margin-top: -20px;
 }
 
 #img-home{
-    display: inline-block;
     margin-top: 100px;
 }
 
 .circle{
     border: 1px solid #424242;
+}
+
+#tablehome{
+    width: auto;
+    display: inline-block;
 }
 
 /*ABOUT*/
@@ -63,6 +68,14 @@ tr{
 
 .progress .determinate{
     background-color: #616161;
+}
+
+.editableskill{
+    margin-top: -250px;
+}
+
+#input-area{
+    margin-top: -200px;
 }
 
 /*PROJECTS*/

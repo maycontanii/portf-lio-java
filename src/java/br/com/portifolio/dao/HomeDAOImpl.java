@@ -13,7 +13,7 @@ public class HomeDAOImpl implements HomeDAO {
     private ArrayList<Home> list;
 
     @Override
-    public void salvarAtualizar(Home home) {
+    public void save(Home home) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
@@ -24,7 +24,7 @@ public class HomeDAOImpl implements HomeDAO {
     }
 
     @Override
-    public ArrayList<Home> buscarInfo() {
+    public ArrayList<Home> find() {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
@@ -32,14 +32,5 @@ public class HomeDAOImpl implements HomeDAO {
         this.list = (ArrayList<Home>) cri.list();
         session.close();
         return list;
-    }
-
-    @Override
-    public void excluir(Home home) {
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
-        session.delete(home);
-        tx.commit();
     }
 }

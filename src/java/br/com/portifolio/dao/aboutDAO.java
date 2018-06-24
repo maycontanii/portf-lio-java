@@ -6,8 +6,6 @@ import java.util.List;
 public interface aboutDAO {
 
     void save(About sobre);
-    
-    void delete(About sobre);
 
     List<About> find();
 }

@@ -24,7 +24,7 @@ public class skillsDAOIMPL implements skillsDAO {
     }
 
     @Override
-    public void delete(Skills skill) {
+    public void remove(Skills skill) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();

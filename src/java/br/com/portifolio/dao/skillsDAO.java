@@ -7,7 +7,7 @@ public interface skillsDAO {
 
     void save(Skills skill);
 
-    void delete(Skills skill);
+    void remove(Skills skill);
 
     List<Skills> find();
 

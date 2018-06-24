@@ -24,19 +24,18 @@ public class skillsBEAN implements Serializable {
         return listskill;
     }
 
-    public void Remove(Skills s) {
+    public void removeInfo(Skills s) {
         this.skill = s;
-        skillimp.delete(this.skill);
+        skillimp.remove(this.skill);
         this.skill.setTechnology(null);
         this.skill.setLeveltech(null);
-    }
-
-    public void Load(Skills s) {
-        skill = s;
     }
 
     public void saveInfo() {
         skillimp.save(skill);
     }
 
+    public void loadInfo(Skills s) {
+        skill = s;
+    }
 }

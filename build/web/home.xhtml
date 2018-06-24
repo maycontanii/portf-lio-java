@@ -3,152 +3,116 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:body>
         <ui:composition template="WEB-INF/templates/template.xhtml">
             <ui:define name="content">
                 <!--Home Section-->
-                <div>
-                    <div id="home" class="section scrollspy" style="background-image: url('resources/img/desk6.jpg')">
-                        <!--Foto Home + Subtitulo-->
-                        <div class="center-align">
-                            <div id="img-home">
-                                <img class="circle" src="resources/img/maycon.png" width="220" height="220" />
-                            </div>
-                            <div class="row output-text " id="output-text">
-                                <div class="col s2 offset-s5">
-                                    <h:dataTable value="#{homeBEAN.listahome}" var="lis">
-                                        <h:column >
-                                            <h5 id="subtitulo-home" class="titulo center-align"><h:outputText value="#{lis.subtituloHome}"></h:outputText></h5>
-                                        </h:column>
-                                    </h:dataTable>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Titulo Home-->
-                        <div class="row output-text ">
-                            <div class="col s4 offset-s4">
-                                <h:dataTable value="#{homeBEAN.listahome}" var="lis">
-                                    <h:column>
-                                        <h3 id="titulo-home"  class="center-align"><h:outputText value="#{lis.tituloHome}"></h:outputText></h3>
-                                    </h:column>
-                                </h:dataTable>
-                            </div>
-                        </div>
-                        <!--Inputs Editaveis-->
-                        <div class="editable">
-                            <h:form>
-                                <div class="row">
-                                    <div class="input-field col s2 offset-s5">
-                                        <h:inputText id="nome-home" class="validate" value="#{homeBEAN.home.subtituloHome}"/>
-                                        <label for="nome-home">Nome</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s4 offset-s4">
-                                        <h:inputText id="titulo-home" class="validate" value="#{homeBEAN.home.tituloHome}"/>
-                                        <label for="titulo-home">Titulo</label>
-                                    </div>
-                                </div>
-                                <div class="center-align">
-                                    <h:commandButton class="waves-effect waves-light btn" value="Salvar" action="#{homeBEAN.salvarInf()}"></h:commandButton>
-                                </div>
-                            </h:form>
-                            <!--Tabela Home-->
-                            <h:dataTable class="tabela" value="#{homeBEAN.listahome}" var="item" id="tabela">
-                                <h:column>
-                                    <h:form>
-                                        <h:commandLink value="Remover" action="#{homeBEAN.removerInf(item)}"/>
-                                        <h:commandLink value="Alterar" action="#{homeBEAN.carregar(item)}"/>
-                                    </h:form>
-                                </h:column>
-                            </h:dataTable>
-                        </div>
+                <div id="home" class="section scrollspy center-align" style="background-image: url('resources/img/desk6.jpg')">                                
+                    <div id="img-home">
+                        <h:graphicImage class="circle" library="img" name="maycon.png" width="220" height="220"/>
                     </div>
+                    <h:dataTable id="tablehome"  value="#{homeBEAN.listhome}" var="list">
+                        <h:column>
+                            <div class="output-text">
+                                <h5 id="subtitle-home" class="center-align"><h:outputText value="#{list.subtitle}"/></h5>
+                                <h3 id="title-home" class="center-align"><h:outputText value="#{list.title}"/></h3>
+                            </div>
+                            <div class="editable">
+                                <h:form>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h:inputText id="name-home" class="validate" value="#{homeBEAN.home.subtitle}"/>
+                                            <label for="name-home">Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h:inputText id="title-home" class="validate" value="#{homeBEAN.home.title}"/>
+                                            <label for="title-home">Title</label>
+                                        </div>
+                                    </div>
+                                    <div class="row center-align">
+                                        <h:commandButton class="btn waves-effect waves-light" value="save" action="#{homeBEAN.saveInfo()}"/>
+                                        <h:commandButton class="btn waves-effect waves-light blue" value="change" action="#{homeBEAN.loadInf(list)}"/>
+                                    </div>
+                                </h:form>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
                 </div>
+
                 <!--About Section-->
                 <div id="about" class="section scrollspy #fafafa grey lighten-5">
-                    <div class="row output-text " id="output-text">
-                        <div class="col s6">
-                            <div class="row">
-                                <div class="col s12">
-                                    <h:dataTable value="#{aboutBEAN.listabout}" var="list">
-                                        <h:column >
-                                            <h2 id="title-about" class="left-align"><h:outputText value="#{list.title}"></h:outputText></h2>
-                                        </h:column>
-                                    </h:dataTable>
+                    <h:form>
+                        <div class="row">
+                            <div class="col s6">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h2 id="title-about" class="left-align">About</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h:dataTable value="#{aboutBEAN.listabout}" var="listabout">
+                                            <h:column >
+                                                <h5 id="descript-about" class="output-text left-align"><h:outputText value="#{listabout.description}"/></h5>
+                                                <div class="row">
+                                                    <h:form>
+                                                        <div class="input-field col s12 editable">
+                                                            <h:inputText id="descript-about-edit" class="validate" value="#{aboutBEAN.about.description}"/>
+                                                            <label for="descript-about-edit">Description</label>
+                                                            <div class="row">
+                                                                <div class="col s4">
+                                                                    <h:commandButton class="waves-effect waves-light btn" value="Save" action="#{aboutBEAN.saveInfo()}"/>
+                                                                    <h:commandButton class="waves-effect waves-light btn blue" value="Change" action="#{aboutBEAN.loadInfo(listabout)}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </h:form>
+                                                </div>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </div>
+                                </div>
+                                <div class="row output-text">
+                                    <div class="col s10 offset-s1">
+                                        <h:graphicImage id="img-about" class="responsive-img output-text" library="img" name="texture2.png" width="500" height="500"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col s12">
-                                    <h:dataTable value="#{aboutBEAN.listabout}" var="list">
-                                        <h:column >
-                                            <h5 id="descript-about" class="left-align"><h:outputText value="#{list.description}"></h:outputText></h5>
+                            <div class="col s6">
+                                <div class="row">
+                                    <div class="col s6 offset-s4">
+                                        <h2 id="titleskill-about">Skill</h2>
+                                    </div>
+                                </div>
+                                <!--About Skill Table-->
+                                <div class="row output-text editableskill">
+                                    <h:dataTable class="responsive-table centered col s12 m9" value="#{skillsBEAN.listskill}" var="item" >
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Technology
+                                            </f:facet>
+                                            <h:outputText  value="#{item.technology}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Level
+                                            </f:facet>
+                                            <div class="progress">
+                                                <div class="determinate" style="width: #{item.leveltech}"></div>
+                                            </div>
                                         </h:column>
                                     </h:dataTable>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s10 offset-s1">
-                                    <h:graphicImage id="img-about" class="responsive-img " library="img" name="texture2.png" width="500" height="500"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="col s6">
-                            <div class="row">
-                                <div class="col s6 offset-s4">
-                                    <h:dataTable value="#{aboutBEAN.listabout}" var="list">
-                                        <h:column >
-                                            <h2 id="titleskill-about"><h:outputText value="#{list.titleskill}"></h:outputText></h2>
-                                        </h:column>
-                                    </h:dataTable>
-                                </div>
-                            </div>
-                            <!--About Skill Table-->
-                            <div class="row">
-                                <h:dataTable class="responsive-table centered col s12 m9" value="#{skillsBEAN.listskill}" var="item" >
-                                    <h:column>
-                                        <f:facet name="header">
-                                            Technology
-                                        </f:facet>
-                                        <h:outputText  value="#{item.technology}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            Level
-                                        </f:facet>
-                                        <div class="progress">
-                                            <div class="determinate" style="width: #{item.leveltech}"></div>
-                                        </div>
-                                    </h:column>
-                                </h:dataTable>
-                            </div>
-                        </div>
-                    </div>
+                    </h:form>
                     <!--Inputs Editable-->
                     <div class="row editable">
                         <div class="col s6">
-                            <h:form>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <h:inputText id="title-about-edit" class="validate" value="#{aboutBEAN.about.title}"/>
-                                        <label for="title-about-edit">Tittle</label>
-                                    </div>
-                                    <div class="input-field col s4">
-                                        <h:inputText id="titleskill-about" class="validate" value="#{aboutBEAN.about.titleskill}"/>
-                                        <label for="titleskill-about">Tittle Skill</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <h:inputText id="descript-about-edit" class="validate" value="#{aboutBEAN.about.description}"/>
-                                        <label for="descript-about-edit">Description</label>
-                                        <h:commandButton class="waves-effect waves-light btn" value="Save" action="#{aboutBEAN.saveInfo()}"></h:commandButton>
-                                    </div>
-                                </div>
-                            </h:form>
                             <h:form>
                                 <div class="row">
                                     <div class="input-field col s6">
@@ -162,12 +126,12 @@
                                         <label for="leveltech-about">Level</label>
                                     </div>
                                 </div>
-                                <h:commandLink class="btn-small" value="Save " action="#{skillsBEAN.saveInfo()}"/>
+                                <h:commandButton class="waves-effect waves-light btn" value="save" action="#{skillsBEAN.saveInfo()}"/>
                             </h:form>
                         </div>
                         <!--About Skill Table-->
                         <div class="col s6">
-                            <div class="editable">
+                            <div class="editable editableskill">
                                 <h:dataTable class="responsive-table  centered col s12 m12" value="#{skillsBEAN.listskill}" var="item" >
                                     <h:column>
                                         <f:facet name="header">
@@ -188,8 +152,8 @@
                                             Action
                                         </f:facet>
                                         <h:form>
-                                            <h:commandLink class="btn-small" value="Remove " action="#{skillsBEAN.Remove(item)}"/>
-                                            <h:commandLink class="btn-small" value="Change" action="#{skillsBEAN.Load(item)}"/>
+                                            <h:commandLink class="btn-small" value="Remove " action="#{skillsBEAN.removeInfo(item)}"/>
+                                            <h:commandLink class="btn-small" value="Change" action="#{skillsBEAN.loadInfo(item)}"/>
                                         </h:form>
                                     </h:column>
                                 </h:dataTable>
@@ -223,9 +187,10 @@
                         </h:form>
                     </div>
                     <!--Cards Projects-->
-                    <h:dataTable value="#{projectsBEAN.projectlist}" var="list">
-                        <h:column >
-                            <div class="row" id="secondrow-project">
+
+                    <div class="row" id="secondrow-project">
+                        <h:dataTable value="#{projectsBEAN.projectlist}" var="list">
+                            <h:column >
                                 <div class="col s3">
                                     <div class="card medium">
                                         <div class="card-image waves-effect waves-block waves-light">
@@ -245,9 +210,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </h:column>
-                    </h:dataTable>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+
                 </div>
 
                 <!--Contact Section-->

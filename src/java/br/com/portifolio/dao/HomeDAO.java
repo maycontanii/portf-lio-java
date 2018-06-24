@@ -5,9 +5,7 @@ import java.util.List;
 
 public interface HomeDAO {
 
-    void salvarAtualizar(Home home);
-    
-    void excluir(Home home);
+    void save(Home home);
 
-    List<Home> buscarInfo();
+    List<Home> find();
 }

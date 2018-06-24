@@ -8,9 +8,9 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="br.com.portifolio.domain.Home"/>
     <mapping class="br.com.portifolio.domain.About"/>
     <mapping class="br.com.portifolio.domain.Skills"/>
     <mapping class="br.com.portifolio.domain.Projects"/>
+    <mapping class="br.com.portifolio.domain.Home"/>
   </session-factory>
 </hibernate-configuration>
