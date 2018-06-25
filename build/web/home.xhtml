@@ -164,7 +164,6 @@
 
                 <!--  Projects Section-->
                 <div id="projects" class="section scrollspy #fafafa grey lighten-5">
-                    <!--Title Projects-->
                     <div class="row">
                         <h2 id="title-about" class="left-align">Projects</h2>
                         <!--Inputs Editables-->
@@ -182,70 +181,108 @@
                                     <h:inputText id="link-projects-edit" class="validate" value="#{projectsBEAN.project.link}"/>
                                     <label for="link-projects-edit">Link</label>
                                 </div>
-                                <h:commandLink class="btn-small" value="Save " action="#{projectsBEAN.saveInfo()}"/>
+                                <h:commandButton class="waves-effect waves-light btn" value="Save " action="#{projectsBEAN.saveInfo()}"/>
                             </div>
                         </h:form>
                     </div>
-                    <!--Cards Projects-->
+                    <!--Table Projects-->
+                    <div class="row output-text" id="table-project">
+                        <div class="col s10 offset-s1">
+                            <h:dataTable  class="responsive-table centered striped" value="#{projectsBEAN.projectlist}" var="listproj">
+                                <h:column>
+                                    <f:facet name="header">
+                                        Title
+                                    </f:facet>
+                                    <h:outputText  value="#{listproj.title}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        Description
+                                    </f:facet>
+                                    <h:outputText  value="#{listproj.description}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        Access
+                                    </f:facet>
+                                    <a href="#{listproj.link}" target="_blank"><h:graphicImage library="img" name="git.svg" width="30" height="30"/></a>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
 
-                    <div class="row" id="secondrow-project">
-                        <h:dataTable value="#{projectsBEAN.projectlist}" var="list">
-                            <h:column >
-                                <div class="col s3">
-                                    <div class="card medium">
-                                        <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" src="resources/img/desk3.jpg"/>
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="card-title activator grey-text text-darken-4"><h:outputText value="#{list.title}"/><i class="right">+</i></span>
-                                            <p><a href="#{list.link}" target="_blank">Link</a></p>
-                                            <h:form class="editable">
-                                                <h:commandLink class="btn-small" value="Remove " action="#{projectsBEAN.Remove(list)}"/>
-                                                <h:commandLink class="btn-small" value="Change" action="#{projectsBEAN.Load(list)}"/>
-                                            </h:form>
-                                        </div>
-                                        <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4"><h:outputText value="#{list.title}"/><i class="material-icons right">x</i></span>
-                                            <p><h:outputText value="#{list.description}"/></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
                     </div>
-
+                    <div class="row editable" id="table-project">
+                        <div class="col s10 offset-s1">
+                            <h:dataTable  class="responsive-table centered striped" value="#{projectsBEAN.projectlist}" var="listproj">
+                                <h:column>
+                                    <f:facet name="header">
+                                        Title
+                                    </f:facet>
+                                    <h:outputText  value="#{listproj.title}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        Description
+                                    </f:facet>
+                                    <h:outputText  value="#{listproj.description}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        Access
+                                    </f:facet>
+                                    <h:outputText  value="#{listproj.link}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        Action
+                                    </f:facet>
+                                    <h:form>
+                                        <h:commandButton class="waves-effect waves-light btn blue" value="Change" action="#{projectsBEAN.loadInf(listproj)}"/>
+                                        <h:commandButton class="waves-effect waves-light btn red" value="Delete" action="#{projectsBEAN.removeInfo(listproj)}"/>
+                                    </h:form>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Contact Section-->
-                <div id="contact" class="section scrollspy #fafafa grey lighten-5">
+                <div id="contact" class="section scrollspy row #fafafa grey lighten-5">
                     <h2 id="title-contact" class="left-align">Contact</h2>
                     <h:form>
-                        <div class="container" id="container-contact">
+                        <div class="col s6" id="div-contact">
                             <div class="row">
-                                <div class="input-field col s4">
+                                <div class="input-field col s4 offset-s2">
                                     <h:inputText id="name-contact" class="validate" value="#{emailBEAN.email.nome}"/>
                                     <label for="name-contact">Name</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="input-field col s4">
+                                <div class="input-field col s4 offset-s2">
                                     <h:inputText id="email-contact" class="validate" value="#{emailBEAN.email.remetente}"/>
                                     <label for="email-contact">Email</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="input-field col s7">
+                                <div class="input-field col s7 offset-s2">
                                     <h:inputText id="message-contact" class="validate" value="#{emailBEAN.email.mensagem}"/>
                                     <label for="message-contact">Message</label>
                                 </div>
                             </div>
-                            <h:commandButton class="waves-effect waves-light btn #424242 grey darken-1 " value="Send" actionListener="#{emailBEAN.enviarEmail()}"/>
+                            <div class="row">
+                                <div class="input-field col s3 offset-s2">
+                                    <h:commandButton class="waves-effect waves-light btn #424242 grey darken-1 " value="Send" actionListener="#{emailBEAN.enviarEmail()}"/>
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="col s6" id="div-contact">
+                            <div class="row">
+                                <h:graphicImage id="img-about" class="responsive-img output-text" library="img" name="textura3.png" width="600" height="600"/>
+                            </div>
+                        </div>
                     </h:form>
                 </div>
             </ui:define>
         </ui:composition>
     </h:body>    
 </html>
-

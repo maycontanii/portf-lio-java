@@ -10,8 +10,6 @@ public abstract class About_ {
 
 	public static volatile SingularAttribute<About, String> description;
 	public static volatile SingularAttribute<About, Integer> id;
-	public static volatile SingularAttribute<About, String> titleskill;
-	public static volatile SingularAttribute<About, String> title;
 
 }
 

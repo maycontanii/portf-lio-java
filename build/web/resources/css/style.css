@@ -74,14 +74,14 @@ tr{
     margin-top: -250px;
 }
 
-#input-area{
-    margin-top: -200px;
-}
-
 /*PROJECTS*/
 
-#secondrow-project{
-    margin-top: 80px;
+#table-project{
+    margin-top: 50px;
+}
+
+#img-projects{
+    margin-top: 20px;
 }
 
 /*CONTACT*/
@@ -91,7 +91,9 @@ tr{
     margin-top: 80px;
 }
 
-#container-contact{
-    margin-top: 100px;
+#div-contact{
+    margin-top: 50px;
 }
+
+
 
