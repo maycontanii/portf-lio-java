@@ -17,7 +17,7 @@ public class projectsDAOIMPL implements projectsDAO {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
-        session.update(project);
+        session.saveOrUpdate(project);      
         tx.commit();
         session.flush();
         session.close();

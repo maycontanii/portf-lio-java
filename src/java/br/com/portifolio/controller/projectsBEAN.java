@@ -37,6 +37,6 @@ public class projectsBEAN implements Serializable {
     }
 
     public void loadInf(Projects p) {
-        project = p;
+        this.project = p;
     }
 }

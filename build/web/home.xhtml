@@ -116,6 +116,7 @@
                             <h:form>
                                 <div class="row">
                                     <div class="input-field col s6">
+                                        <h:inputHidden value="#{skillsBEAN.skill.id}"/>
                                         <h:inputText id="tech-about-edit" class="validate" value="#{skillsBEAN.skill.technology}"/>
                                         <label for="tech-about-edit">Technology</label>
                                     </div>
@@ -164,12 +165,13 @@
 
                 <!--  Projects Section-->
                 <div id="projects" class="section scrollspy #fafafa grey lighten-5">
-                    <div class="row">
-                        <h2 id="title-about" class="left-align">Projects</h2>
-                        <!--Inputs Editables-->
-                        <h:form>
+                    <h:form>
+                        <div class="row">
+                            <h2 id="title-about" class="left-align">Projects</h2>
+                            <!--Inputs Editables-->
                             <div class="editable">
                                 <div class="input-field col s2">
+                                    <h:inputHidden value="#{projectsBEAN.project.id}"/>
                                     <h:inputText id="title-projects-edit" class="validate" value="#{projectsBEAN.project.title}"/>
                                     <label for="title-projects-edit">Title</label>
                                 </div>
@@ -183,67 +185,64 @@
                                 </div>
                                 <h:commandButton class="waves-effect waves-light btn" value="Save " action="#{projectsBEAN.saveInfo()}"/>
                             </div>
-                        </h:form>
-                    </div>
-                    <!--Table Projects-->
-                    <div class="row output-text" id="table-project">
-                        <div class="col s10 offset-s1">
-                            <h:dataTable  class="responsive-table centered striped" value="#{projectsBEAN.projectlist}" var="listproj">
-                                <h:column>
-                                    <f:facet name="header">
-                                        Title
-                                    </f:facet>
-                                    <h:outputText  value="#{listproj.title}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Description
-                                    </f:facet>
-                                    <h:outputText  value="#{listproj.description}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Access
-                                    </f:facet>
-                                    <a href="#{listproj.link}" target="_blank"><h:graphicImage library="img" name="git.svg" width="30" height="30"/></a>
-                                </h:column>
-                            </h:dataTable>
                         </div>
-
-                    </div>
-                    <div class="row editable" id="table-project">
-                        <div class="col s10 offset-s1">
-                            <h:dataTable  class="responsive-table centered striped" value="#{projectsBEAN.projectlist}" var="listproj">
-                                <h:column>
-                                    <f:facet name="header">
-                                        Title
-                                    </f:facet>
-                                    <h:outputText  value="#{listproj.title}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Description
-                                    </f:facet>
-                                    <h:outputText  value="#{listproj.description}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Access
-                                    </f:facet>
-                                    <h:outputText  value="#{listproj.link}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        Action
-                                    </f:facet>
-                                    <h:form>
-                                        <h:commandButton class="waves-effect waves-light btn blue" value="Change" action="#{projectsBEAN.loadInf(listproj)}"/>
+                        <!--Table Projects-->
+                        <div class="row output-text" id="table-project">
+                            <div class="col s10 offset-s1">
+                                <h:dataTable  class="responsive-table centered striped" value="#{projectsBEAN.projectlist}" var="listproj">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Title
+                                        </f:facet>
+                                        <h:outputText  value="#{listproj.title}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Description
+                                        </f:facet>
+                                        <h:outputText  value="#{listproj.description}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Access
+                                        </f:facet>
+                                        <a href="#{listproj.link}" target="_blank"><h:graphicImage library="img" name="git.svg" width="30" height="30"/></a>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </div>
+                        <div class="row editable" id="table-project">
+                            <div class="col s10 offset-s1">
+                                <h:dataTable  class="responsive-table centered striped" value="#{projectsBEAN.projectlist}" var="listproj">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Title
+                                        </f:facet>
+                                        <h:outputText  value="#{listproj.title}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Description
+                                        </f:facet>
+                                        <h:outputText  value="#{listproj.description}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Access
+                                        </f:facet>
+                                        <h:outputText  value="#{listproj.link}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            Action
+                                        </f:facet>
+                                        <h:commandButton class="waves-effect waves-light btn blue" value="Change" action="#{projectsBEAN.loadInf(listproj)}" />
                                         <h:commandButton class="waves-effect waves-light btn red" value="Delete" action="#{projectsBEAN.removeInfo(listproj)}"/>
-                                    </h:form>
-                                </h:column>
-                            </h:dataTable>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
                         </div>
-                    </div>
+                    </h:form>
                 </div>
 
                 <!--Contact Section-->
